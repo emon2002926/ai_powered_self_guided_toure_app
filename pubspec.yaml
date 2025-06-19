@@ -54,19 +54,26 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
-    - assets/fonts/
+    - assets/icons/
+    - assets/fonts/playfair/
+    - assets/fonts/poppins/
 
   fonts:
     - family: PlayfairDisplay
       fonts:
-        - asset: assets/fonts/PlayfairDisplay-Black.ttf
-        - asset: assets/fonts/PlayfairDisplay-BlackItalic.ttf
-        - asset: assets/fonts/PlayfairDisplay-Bold.ttf
-        - asset: assets/fonts/PlayfairDisplay-BoldItalic.ttf
-        - asset: assets/fonts/PlayfairDisplay-Italic.ttf
-        - asset: assets/fonts/PlayfairDisplay-Medium.ttf
-        - asset: assets/fonts/PlayfairDisplay-MediumItalic.ttf
-        - asset: assets/fonts/PlayfairDisplay-Regular.ttf
-        - asset: assets/fonts/PlayfairDisplay-SemiBold.ttf
-        - asset: assets/fonts/PlayfairDisplay-SemiBoldItalic.ttf
+        - asset: assets/fonts/playfair/PlayfairDisplay-Black.ttf
+        - asset: assets/fonts/playfair/PlayfairDisplay-BlackItalic.ttf
+        - asset: assets/fonts/playfair/PlayfairDisplay-Bold.ttf
+        - asset: assets/fonts/playfair/PlayfairDisplay-BoldItalic.ttf
+        - asset: assets/fonts/playfair/PlayfairDisplay-Italic.ttf
+        - asset: assets/fonts/playfair/PlayfairDisplay-Medium.ttf
+        - asset: assets/fonts/playfair/PlayfairDisplay-MediumItalic.ttf
+        - asset: assets/fonts/playfair/PlayfairDisplay-Regular.ttf
+        - asset: assets/fonts/playfair/PlayfairDisplay-SemiBold.ttf
+        - asset: assets/fonts/playfair/PlayfairDisplay-SemiBoldItalic.ttf
+
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/poppins/Poppins-Regular.ttf
+        - asset: assets/fonts/poppins/Poppins-Bold.ttf
 

@@ -1,8 +1,10 @@
 import 'package:ai_powered_self_guided_toure_app/constant/app_assert_image.dart';
 import 'package:ai_powered_self_guided_toure_app/widget/buttons/app_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../constant/app_colors.dart';
+import '../auth_all_screens/login_screen/login_screen.dart';
 import 'controller/welcome_screen_controller.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -44,9 +46,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             child: Padding(
               padding: const EdgeInsets.all(24.0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(height: 100,),
                   Image.asset(AppAssertImage.instance.welcomeScreenImage),
                   Text(
                     "Welcome \n to \n Bolt City tour",
@@ -58,9 +59,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 48),
+                  Image.asset(AppAssertImage.instance.cycleImage,height: 200,),
+                  const SizedBox(height: 30,),
+
                   AppButton(buttonText: "Get Started",
-                      onPressed: _controller.onGetStarted,textColor: Colors.black,),
+                      onPressed: (){
+                        Get.to(() => LoginScreen());
+                      },textColor: Colors.black,),
                 ],
               ),
             ),
