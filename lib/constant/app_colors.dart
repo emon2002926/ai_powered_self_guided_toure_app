@@ -85,4 +85,14 @@ class AppColors {
   final Color white700 = const Color(0xffa9a9a9);
   final Color white800 = const Color(0xff838383);
   final Color white900 = const Color(0xff646464);
+
+////////////////title color
+  final Color titleTextColor = const Color(0xFF333333);
+
+
+  ////////////////Auth Screen Color
+  final Color welcomeTextColor = const Color(0xFF333333);
+  final Color hintTextColor = const Color(0xFF000000);
+  final Color labelTextColor = const Color(0xFF000000);
+
 }

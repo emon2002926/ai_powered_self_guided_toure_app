@@ -5,4 +5,6 @@ class AppConstant {
 
   // final String appLogo = "assets/logo/app_logo_with_name.png";
   final String font = "Montserrat";
+  final String playfair = "PlayfairDisplay";
+  final String poppins = "Poppins";
 }

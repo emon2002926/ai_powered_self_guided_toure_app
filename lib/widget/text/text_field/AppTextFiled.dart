@@ -5,8 +5,15 @@ import 'package:flutter/material.dart';
 class AppTextFiled extends StatelessWidget {
   final String hintText;
   final TextEditingController? passwordController;
-  final IconData? icon;
-  const AppTextFiled({super.key, required this.hintText, this.passwordController, this.icon});
+  final IconData? prefixIcon;
+  final IconData? suffixIcon;
+  final Color? hintColor;
+  const AppTextFiled({super.key,
+    required this.hintText,
+    this.passwordController,
+    this.prefixIcon,
+    this.suffixIcon,
+    this.hintColor});
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +22,14 @@ class AppTextFiled extends StatelessWidget {
       controller: passwordController,
       obscureText: true,
       decoration: InputDecoration(
-        prefixIcon: icon != null ? Icon(icon, size: 20) : null,
+        prefixIcon: prefixIcon != null ? Icon(prefixIcon, size: 20) : null,
+        suffixIcon: suffixIcon != null ? Icon(suffixIcon, size: 20) : null,
         hintText: hintText,
-        // prefixIcon: const Icon(Icons.lock_outline, size: 20),
+        hintStyle: TextStyle(
+          color: hintColor ?? Colors.grey[600], // 👈 Change this to any color you want
+          fontSize: 14,       // Optional: adjust the size
+          fontWeight: FontWeight.w400, // Optional: control the weight
+        ),
         filled: true,
         fillColor: AppColors.instance.textFilledColor,
         border: OutlineInputBorder(

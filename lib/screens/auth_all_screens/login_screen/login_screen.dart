@@ -1,10 +1,11 @@
 import 'package:ai_powered_self_guided_toure_app/constant/app_colors.dart';
 import 'package:ai_powered_self_guided_toure_app/constant/app_constant.dart';
+import 'package:ai_powered_self_guided_toure_app/routes/app_routes.dart';
 import 'package:ai_powered_self_guided_toure_app/widget/buttons/app_button.dart';
 import 'package:ai_powered_self_guided_toure_app/widget/text/app_text.dart';
 import 'package:ai_powered_self_guided_toure_app/widget/text/text_field/AppTextFiled.dart';
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 import '../../../constant/app_assert_image.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -18,7 +19,7 @@ class LoginScreen extends StatelessWidget {
           centerTitle: true, // 👈 This centers the title
           title: AppText(
             data: "Sign In", // (corrected typo from "Sing In")
-            color: Colors.grey[900],
+            color: AppColors.instance.titleTextColor,
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
@@ -29,22 +30,34 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(height: 12,),
+              const SizedBox(height: 12,),
               AppText(
                 data: "Welcome Back",
-                color: Colors.grey[900],
+                color: AppColors.instance.welcomeTextColor,
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
               SizedBox(
                 height:  MediaQuery.of(context).size.height*0.08,),
-              SizedBox( width: 374,
-                  child: const Text(" User Name",style: TextStyle(fontWeight: FontWeight.w900,fontSize: 16),)),
+              SizedBox( width: double.infinity,
+                 child: AppText(
+                   data: "User Name",
+                   fontWeight: FontWeight.w900,
+                   fontSize: 16,
+                   color: AppColors.instance.labelTextColor,
+
+                 )),
               const SizedBox(height: 8,),
               AppTextFiled(hintText: "Enter your user name here"),
               const SizedBox(height: 16),
-              SizedBox( width: 374,
-                  child: const Text(" Password",style: TextStyle(fontWeight: FontWeight.w900,fontSize: 16),)),
+              SizedBox( width: double.infinity,
+                  child: AppText(
+                    data: "Password",
+                    fontWeight: FontWeight.w900,
+                    fontSize: 16,
+                    color: AppColors.instance.labelTextColor,
+
+                  )),
               const SizedBox(height: 8,),
               AppTextFiled(hintText: "Enter your password", ),
               SizedBox(height: 16,),
@@ -96,7 +109,7 @@ class LoginScreen extends StatelessWidget {
                     height: 20,
                     child: Image.asset(AppAssertImage.instance.googleLogo),
                   ),
-                  label: const Text("Continue with Google",style: TextStyle(color: Colors.black),),
+                  label: AppText(color: Colors.black, data: "Continue with Google",),
                   style: OutlinedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
@@ -117,10 +130,7 @@ class LoginScreen extends StatelessWidget {
                     height: 20,
                     child: Image.asset('assets/icons/apple_logo.png'),
                   ),
-                  label: const Text(
-                    "Continue with Apple",
-                    style: TextStyle(color: Colors.black),
-                  ),
+                  label: AppText(color: Colors.black, data: "Continue with Apple",),
                   style: OutlinedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
@@ -139,7 +149,9 @@ class LoginScreen extends StatelessWidget {
                   ),
                   GestureDetector(
 
-                    // onTap: onRegisterTap,
+                    onTap: (){
+                      Get.toNamed(AppRoutes.register);
+                    },
                     child:  Text(
                       "Register Now",
                       style: TextStyle(

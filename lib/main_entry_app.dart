@@ -1,3 +1,4 @@
+import 'package:ai_powered_self_guided_toure_app/routes/app_routes_file.dart';
 import 'package:ai_powered_self_guided_toure_app/screens/welcome_screen/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -9,6 +10,7 @@ class MainEntryApp extends StatelessWidget {
     return  GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: WelcomeScreen(),
+      getPages:appRootRoutesFile,
     );
   }
 }

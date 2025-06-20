@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../constant/app_colors.dart';
+import '../../routes/app_routes.dart';
+import '../../routes/app_routes_file.dart';
 import '../auth_all_screens/login_screen/login_screen.dart';
 import 'controller/welcome_screen_controller.dart';
 
@@ -64,7 +66,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
                   AppButton(buttonText: "Get Started",
                       onPressed: (){
-                        Get.to(() => LoginScreen());
+                        Get.toNamed(AppRoutes.login);
                       },textColor: Colors.black,),
                 ],
               ),

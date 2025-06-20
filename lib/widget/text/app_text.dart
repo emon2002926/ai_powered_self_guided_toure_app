@@ -46,7 +46,7 @@ class AppText extends StatelessWidget {
         fontSize: fontSize,
         color: color ?? AppColors.instance.textColor,
         fontWeight: fontWeight,
-        fontFamily: fontFamily ?? AppConstant.instance.font,
+        fontFamily: fontFamily ?? AppConstant.instance.poppins,
         decoration: decoration,
         decorationColor: decorationColor,
       ),
