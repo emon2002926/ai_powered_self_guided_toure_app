@@ -81,7 +81,12 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               AppButton(
-                buttonText: "Login", onPressed: () {  },textColor: Colors.black ,borderRadius: 20,),
+                buttonText: "Login",
+                onPressed: () {  },
+                textColor: Colors.black ,
+                borderRadius: 25,
+                buttonColor: AppColors.instance.loginBtnColor,
+              ),
               const SizedBox(height: 24),
               // Divider
               const Row(
