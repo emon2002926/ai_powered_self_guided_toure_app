@@ -34,35 +34,35 @@ class _SignUpScreenState extends State<SignUpScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               const SizedBox(height: 12),
-              AppText(
-                data: "Create Account",
-                color: AppColors.instance.welcomeTextColor,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.08),
-              SizedBox(width: double.infinity,child: AppText(data: "Username",fontWeight: FontWeight.w900, fontSize: 16)), // (corrected typo from "Sing In")
-              const SizedBox(height: 12),
-              AppTextFiled(hintText: "Username"),
-              const SizedBox(height: 16),
+              // AppText(
+              //   data: "Create Account",
+              //   color: AppColors.instance.welcomeTextColor,
+              //   fontSize: 24,
+              //   fontWeight: FontWeight.bold,
+              // ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.025),
+              SizedBox(width: double.infinity,child: AppText(data: "Full Name",fontWeight: FontWeight.w900, fontSize: 16)), // (corrected typo from "Sing In")
+              SizedBox(height: MediaQuery.of(context).size.height * 0.020),
+              AppTextFiled(hintText: "Full Name"),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.025),
               SizedBox(width: double.infinity,child: AppText(data: "Email",fontWeight: FontWeight.w900, fontSize: 16)),
-              const SizedBox(height: 12),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.020),
               AppTextFiled(hintText: "Email"),
-              const SizedBox(height: 16),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.025),
               SizedBox(width: double.infinity,child: AppText(data: "Phone Number",fontWeight: FontWeight.w900, fontSize: 16)), // (corrected typo from "Sing In")
-              const SizedBox(height: 12),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.020),
               AppTextFiled(hintText: "Phone Number"),
-              const SizedBox(height: 16),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.025),
               SizedBox(width: double.infinity,child: AppText(data: "Password",fontWeight: FontWeight.w900, fontSize: 16)),
-              const SizedBox(height: 12),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.020),
               AppTextFiled(hintText: "Password",suffixIcon: Icons.visibility_off,),
-              const SizedBox(height: 16),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.025),
               SizedBox(width: double.infinity,child: AppText(data: "Password",fontWeight: FontWeight.w900, fontSize: 16)),
-              const SizedBox(height: 12),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.020),
               AppTextFiled(hintText: "Password",suffixIcon: Icons.visibility_off),
-              const SizedBox(height: 24),
-              AppButton(buttonText: "Sign Up", onPressed: () {},textColor: Colors.black,buttonColor: AppColors.instance.loginBtnColor,),
-              SizedBox(height: 8,),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.035),
+              AppButton(buttonText: "Sign Up", onPressed: () {},textColor: Colors.black,buttonColor: AppColors.instance.loginBtnColor,borderRadius: 25,),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.020),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -71,7 +71,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     onTap: (){
                       Get.back();
                     },
-                    child: AppText(data: "Sing In",color: Colors.grey[800],fontSize: 14,fontWeight: FontWeight.bold,),
+                    child: AppText(data: "Sing In",color: Colors.grey[900],fontSize: 14,fontWeight: FontWeight.bold,),
                   )
 
               ],),

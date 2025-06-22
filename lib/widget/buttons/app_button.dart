@@ -11,9 +11,10 @@ class AppButton extends StatelessWidget {
   final double? borderRadius;
   final String? fontFamily;
   final double? fontSize;
+  final double? elevation;
 
   const AppButton({super.key, required this.buttonText,
-    required this.onPressed, this.textColor, this.backgroundColor, this.buttonColor, this.borderRadius, this.fontFamily, this.fontSize});
+    required this.onPressed, this.textColor, this.backgroundColor, this.buttonColor, this.borderRadius, this.fontFamily, this.fontSize, this.elevation});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,8 @@ class AppButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed, // this is enough
         style: ElevatedButton.styleFrom(
-          backgroundColor: buttonColor ?? AppColors.instance.green500,
+          backgroundColor: buttonColor ?? AppColors.instance.btnColor,
+          elevation: elevation ?? 0 ,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius ?? 12),
           ),
@@ -32,7 +34,7 @@ class AppButton extends StatelessWidget {
         child:  Text(
           buttonText,
           style: TextStyle(
-            color: textColor ?? AppColors.instance.btnColor,
+            color: textColor ?? AppColors.instance.btnTextColor,
             fontFamily: fontFamily ?? AppConstant.instance.poppins ,
             fontWeight: FontWeight.w700,
             fontSize: fontSize ?? 16,

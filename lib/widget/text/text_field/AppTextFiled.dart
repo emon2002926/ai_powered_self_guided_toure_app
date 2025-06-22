@@ -8,12 +8,13 @@ class AppTextFiled extends StatelessWidget {
   final IconData? prefixIcon;
   final IconData? suffixIcon;
   final Color? hintColor;
+  final double? hintSize;
   const AppTextFiled({super.key,
     required this.hintText,
     this.passwordController,
     this.prefixIcon,
     this.suffixIcon,
-    this.hintColor});
+    this.hintColor, this.hintSize});
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +27,8 @@ class AppTextFiled extends StatelessWidget {
         suffixIcon: suffixIcon != null ? Icon(suffixIcon, size: 20) : null,
         hintText: hintText,
         hintStyle: TextStyle(
-          color: hintColor ?? Colors.grey[600], // 👈 Change this to any color you want
-          fontSize: 14,       // Optional: adjust the size
+          color: hintColor ?? AppColors.instance.hintTextColor, // 👈 Change this to any color you want
+          fontSize: hintSize ?? 14,       // Optional: adjust the size
           fontWeight: FontWeight.w400, // Optional: control the weight
         ),
         filled: true,

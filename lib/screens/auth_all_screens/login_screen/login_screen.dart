@@ -67,7 +67,10 @@ class LoginScreen extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Get.toNamed(AppRoutes.forgotPassword);
+
+                        },
                         child: AppText(
                           data: "Forget Password?",
                           fontWeight: FontWeight.w400,
@@ -82,8 +85,9 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(height: 24),
               AppButton(
                 buttonText: "Login",
-                onPressed: () {  },
-                textColor: Colors.black ,
+                onPressed: () {
+                  Get.toNamed(AppRoutes.home);
+                },
                 borderRadius: 25,
                 buttonColor: AppColors.instance.loginBtnColor,
               ),

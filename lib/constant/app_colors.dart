@@ -95,9 +95,11 @@ class AppColors {
 
   final Color primary = const Color(0xFFBDF0D5);
   final Color background = const Color(0xFFF5F5F5);
-  final Color textFilledColor = const Color(0xFFBDF0D5);
-
-  final Color loginBtnColor = const Color(0xFFBDF0D5);
+  final Color textFilledColor = const Color(0xFFB8ECC5);
+  final Color loginBtnColor = const Color(0xFF12B76A);
+  final Color btnTextColor = const Color(0xFFFFFFFF);
+  final Color softMint = const Color(0xFFF5F5F5);
+  final Color softMintBackground = const Color(0xFFFFFFFF);
 
 
 
