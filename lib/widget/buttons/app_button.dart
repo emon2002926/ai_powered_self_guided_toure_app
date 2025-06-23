@@ -12,15 +12,16 @@ class AppButton extends StatelessWidget {
   final String? fontFamily;
   final double? fontSize;
   final double? elevation;
+  final double? buttonHeight ;
 
   const AppButton({super.key, required this.buttonText,
-    required this.onPressed, this.textColor, this.backgroundColor, this.buttonColor, this.borderRadius, this.fontFamily, this.fontSize, this.elevation});
+    required this.onPressed, this.textColor, this.backgroundColor, this.buttonColor, this.borderRadius, this.fontFamily, this.fontSize, this.elevation, this.buttonHeight});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 48,
+      height: buttonHeight ?? 48,
       child: ElevatedButton(
         onPressed: onPressed, // this is enough
         style: ElevatedButton.styleFrom(

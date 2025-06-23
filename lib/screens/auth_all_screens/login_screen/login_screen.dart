@@ -86,7 +86,9 @@ class LoginScreen extends StatelessWidget {
               AppButton(
                 buttonText: "Login",
                 onPressed: () {
-                  Get.toNamed(AppRoutes.home);
+                  Get.toNamed(AppRoutes.citySearch);
+                  // Get.toNamed(AppRoutes.landMark);
+
                 },
                 borderRadius: 25,
                 buttonColor: AppColors.instance.loginBtnColor,
@@ -121,7 +123,7 @@ class LoginScreen extends StatelessWidget {
                   label: AppText(color: Colors.black, data: "Continue with Google",),
                   style: OutlinedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(25),
                     ),
                   ),
                 ),
@@ -142,7 +144,7 @@ class LoginScreen extends StatelessWidget {
                   label: AppText(color: Colors.black, data: "Continue with Apple",),
                   style: OutlinedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(25),
                     ),),
                 ),
               ),

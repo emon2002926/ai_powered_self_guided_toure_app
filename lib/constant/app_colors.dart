@@ -100,6 +100,7 @@ class AppColors {
   final Color btnTextColor = const Color(0xFFFFFFFF);
   final Color softMint = const Color(0xFFF5F5F5);
   final Color softMintBackground = const Color(0xFFFFFFFF);
+  final Color cardBackground = const Color(0xFFF5F5F5);
 
 
 

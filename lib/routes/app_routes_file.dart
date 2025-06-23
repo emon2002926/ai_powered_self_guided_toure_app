@@ -1,3 +1,5 @@
+import 'package:ai_powered_self_guided_toure_app/screens/landmark_screen/landmark_brief.dart';
+import 'package:ai_powered_self_guided_toure_app/screens/landmark_screen/landmark_screen.dart';
 import 'package:ai_powered_self_guided_toure_app/screens/welcome_screen/welcome_screen.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -17,6 +19,8 @@ List<GetPage> appRootRoutesFile = <GetPage>[
   GetPage(name: AppRoutes.register, page: () => const SignUpScreen(), transition: Transition.rightToLeftWithFade, transitionDuration: const Duration(milliseconds: 250)),
   GetPage(name: AppRoutes.forgotPassword, page: () => const ForgotPasswordPage(), transition: Transition.rightToLeftWithFade, transitionDuration: const Duration(milliseconds: 250)),
   GetPage(name: AppRoutes.verifyCodePage, page: () =>  OtpVerificationPage(email: Get.arguments), transition: Transition.rightToLeftWithFade, transitionDuration: const Duration(milliseconds: 250)),
-  GetPage(name: AppRoutes.home, page: () => const CitySelectionScreen(), transition: Transition.rightToLeftWithFade, transitionDuration: const Duration(milliseconds: 250)),
+  GetPage(name: AppRoutes.citySearch, page: () => const CitySelectionScreen(), transition: Transition.rightToLeftWithFade, transitionDuration: const Duration(milliseconds: 250)),
+  GetPage(name: AppRoutes.landMark, page: () => const LandmarkPage(), transition: Transition.rightToLeftWithFade, transitionDuration: const Duration(milliseconds: 250)),
+  GetPage(name: AppRoutes.landmarkBrief, page: () => const LandmarkBrief(), transition: Transition.rightToLeftWithFade, transitionDuration: const Duration(milliseconds: 250)),
 
 ];

@@ -10,7 +10,9 @@ class AppRoutes{
   static const String forgotPassword = '/forgotPassword';
   static const String verifyCodePage = '/verifyCode';
   static const String forgotPasswordRoute = '/forgotPassword';
-  static const String home = '/home';
+  static const String citySearch = '/citySearch';
+  static const String landMark = '/landmark';
+  static const String landmarkBrief = '/landmarkBrief';
 
 
 }
