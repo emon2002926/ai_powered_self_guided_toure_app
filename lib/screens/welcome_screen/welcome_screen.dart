@@ -1,5 +1,6 @@
 import 'package:ai_powered_self_guided_toure_app/constant/app_assert_image.dart';
 import 'package:ai_powered_self_guided_toure_app/widget/buttons/app_button.dart';
+import 'package:ai_powered_self_guided_toure_app/widget/container/glass_container.dart';
 import 'package:ai_powered_self_guided_toure_app/widget/text/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -69,7 +70,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     },
                   ),
                   // const SizedBox(height: 30,),
-        
+
                   Padding(
                     padding: const EdgeInsets.all(24.0),
                     child: AppButton(
@@ -79,8 +80,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       },
                       borderRadius: 12,
                       buttonColor: AppColors.instance.loginBtnColor,
-                    ),
+                    )
                   ),
+
+
                 ],
               ),
             );

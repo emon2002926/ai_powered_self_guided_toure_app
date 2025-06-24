@@ -1,12 +1,16 @@
+import 'dart:async';
+import 'dart:ui';
+
+import 'package:ai_powered_self_guided_toure_app/constant/app_assert_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import 'package:ai_powered_self_guided_toure_app/constant/app_colors.dart';
 import 'package:ai_powered_self_guided_toure_app/util/sample_data/city_list.dart';
 import 'package:ai_powered_self_guided_toure_app/widget/buttons/app_button.dart';
 import 'package:ai_powered_self_guided_toure_app/widget/text/app_text.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:ai_powered_self_guided_toure_app/widget/search_bar/custom_search_bar.dart';
 import '../../routes/app_routes.dart';
-import '../../widget/search_bar/custom_search_bar.dart';
 
 class LandmarkPage extends StatefulWidget {
   const LandmarkPage({super.key});
@@ -17,28 +21,72 @@ class LandmarkPage extends StatefulWidget {
 
 class _LandmarkPageState extends State<LandmarkPage> {
   final TextEditingController _searchController = TextEditingController();
+  final PageController _pageController = PageController();
+  Timer? _autoScrollTimer;
   int _currentImageIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _autoScrollTimer = Timer.periodic(const Duration(seconds: 3), (timer) {
+      if (_pageController.hasClients) {
+        int nextPage = (_currentImageIndex + 1) % cities.length;
+        _pageController.animateToPage(
+          nextPage,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+        );
+      }
+    });
+  }
 
   @override
   void dispose() {
     _searchController.dispose();
+    _pageController.dispose();
+    _autoScrollTimer?.cancel();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      extendBodyBehindAppBar: true,
+      backgroundColor: Colors.transparent,
       appBar: _buildAppBar(),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: Stack(
         children: [
-          _buildSearchBar(),
-          _buildSectionTitle('Visited places'),
-          _buildImageCarousel(),
-          _buildPageIndicators(),
-          _buildSectionTitle('What kind of ride would you like to take?'),
-          _buildActionButtons(),
+          // Background blur with current city image
+          Positioned.fill(
+            child: Image.asset(
+              // cities[_currentImageIndex].imageUrl,
+              AppAssertImage.instance.backgroundImage,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Positioned.fill(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+              child: Container(
+                color: Colors.white.withOpacity(0.1),
+              ),
+            ),
+          ),
+
+          // Foreground content
+          SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // _buildSearchBar(),
+                _buildSectionTitle('Visited places'),
+                _buildImageCarousel(),
+                _buildPageIndicators(),
+                _buildSectionTitle('What kind of ride would you like to take?'),
+                _buildActionButtons(),
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -46,17 +94,17 @@ class _LandmarkPageState extends State<LandmarkPage> {
 
   AppBar _buildAppBar() {
     return AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.transparent,
       elevation: 0,
       leading: IconButton(
-        icon: const Icon(Icons.arrow_back, color: Colors.black),
+        icon: const Icon(Icons.arrow_back, color: Colors.white),
         onPressed: () => Navigator.pop(context),
       ),
       title: const AppText(
         data: 'Landmark',
-        color: Colors.black,
+        color: Colors.white,
         fontSize: 20,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.bold,
       ),
       centerTitle: true,
     );
@@ -76,7 +124,8 @@ class _LandmarkPageState extends State<LandmarkPage> {
         data: title,
         fontSize: 16,
         fontWeight: FontWeight.w500,
-        color: Colors.black87,
+        color: Colors.white,
+
       ),
     );
   }
@@ -85,6 +134,7 @@ class _LandmarkPageState extends State<LandmarkPage> {
     return SizedBox(
       height: 280,
       child: PageView.builder(
+        controller: _pageController,
         onPageChanged: (index) => setState(() => _currentImageIndex = index),
         itemCount: cities.length,
         itemBuilder: (context, index) => _buildImageCard(index),
@@ -94,7 +144,6 @@ class _LandmarkPageState extends State<LandmarkPage> {
 
   Widget _buildImageCard(int index) {
     final city = cities[index];
-
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
@@ -116,9 +165,7 @@ class _LandmarkPageState extends State<LandmarkPage> {
               city.imageUrl,
               fit: BoxFit.cover,
             ),
-            Container(
-              color: Colors.black.withOpacity(0.3),
-            ),
+            Container(color: Colors.black.withOpacity(0.3)),
             Align(
               alignment: Alignment.bottomLeft,
               child: Padding(
@@ -172,25 +219,22 @@ class _LandmarkPageState extends State<LandmarkPage> {
               onPressed: () {
                 Get.toNamed(AppRoutes.landmarkBrief);
               },
-              buttonColor: AppColors.instance.loginBtnColor,
+              buttonColor: AppColors.instance.transparent,
+              borderColor: AppColors.instance.white50,
+              borderWidth: 1.5,
               buttonHeight: 60,
             ),
             const SizedBox(height: 30),
             AppButton(
               buttonText: "A Scavenger Hunt",
               onPressed: () {},
-              buttonColor: AppColors.instance.loginBtnColor,
+              buttonColor: AppColors.instance.transparent,
+              borderColor: AppColors.instance.white50,
+              borderWidth: 1.5,
               buttonHeight: 60,
             ),
             const Spacer(),
-            // Container(
-            //   width: 134,
-            //   height: 5,
-            //   decoration: BoxDecoration(
-            //     color: Colors.black,
-            //     borderRadius: BorderRadius.circular(2.5),
-            //   ),
-            // ),
+            const Spacer(),
           ],
         ),
       ),
