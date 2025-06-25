@@ -7,5 +7,5 @@
     final String cycleImage = "assets/images/cycle_image.png";
     final String appleLogo = "assets/icons/apple_logo.png";
     final String googleLogo = "assets/icons/google_logo.png";
-    final String backgroundImage = "assets/cities/bg2.jpg";
+    final String backgroundImage = "assets/cities/bg2.webp";
   }

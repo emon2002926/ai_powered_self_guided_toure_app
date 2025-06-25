@@ -8,18 +8,11 @@ import 'main_entry_app.dart';
 void main() {
   //////////// app navigation style set
   SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(
-        systemNavigationBarColor: Colors.white, statusBarColor: AppColors.instance.transparent, systemNavigationBarDividerColor: Colors.transparent
-        ,systemNavigationBarIconBrightness: Brightness.light),
+    const SystemUiOverlayStyle(
+      systemNavigationBarColor: Colors.white, // Change this to any color
+      systemNavigationBarIconBrightness: Brightness.light, // Icon color
+    ),
   );
-
-  // SystemChrome.setSystemUIOverlayStyle(
-  //   const SystemUiOverlayStyle(
-  //      // Change this to any color
-  //     systemNavigationBarIconBrightness: Brightness.light, // Icon color
-  //   ),
-  // );
-
   runApp(MainEntryApp());
 }
 
