@@ -25,7 +25,7 @@ class CitySelectionScreen extends StatelessWidget {
             height: double.infinity,
             filterQuality: FilterQuality.low,
           ).blurred(
-            blur: 8,
+            blur: 6,
             blurColor: Colors.black.withOpacity(0.15),
           ),
 

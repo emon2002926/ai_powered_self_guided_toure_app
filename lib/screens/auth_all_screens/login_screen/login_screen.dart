@@ -1,4 +1,3 @@
-import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ai_powered_self_guided_toure_app/constant/app_assert_image.dart';
@@ -16,16 +15,13 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          /// 🔹 Blurred Background using `blur` package
+          /// 🔹 Pre-blurred Background Image (no runtime blur)
           Image.asset(
-            AppAssertImage.instance.backgroundImage,
+            AppAssertImage.instance.backgroundImage, // Make sure this points to the blurred image
             fit: BoxFit.cover,
             width: double.infinity,
             height: double.infinity,
             filterQuality: FilterQuality.low,
-          ).blurred(
-            blur: 8,
-            blurColor: Colors.black.withOpacity(0.1),
           ),
 
           /// 🔹 Foreground Content
