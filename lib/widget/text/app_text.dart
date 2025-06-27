@@ -44,7 +44,7 @@ class AppText extends StatelessWidget {
       style: Theme.of(context).textTheme.displaySmall?.copyWith(
         height: height,
         fontSize: fontSize,
-        color: color ?? AppColors.instance.textColor,
+        color: color ?? AppColors.instance.white50,
         fontWeight: fontWeight,
         fontFamily: fontFamily ?? AppConstant.instance.poppins,
         decoration: decoration,

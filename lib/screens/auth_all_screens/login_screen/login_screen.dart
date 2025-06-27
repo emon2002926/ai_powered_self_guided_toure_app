@@ -7,6 +7,8 @@ import 'package:ai_powered_self_guided_toure_app/widget/buttons/app_button.dart'
 import 'package:ai_powered_self_guided_toure_app/widget/text/app_text.dart';
 import 'package:ai_powered_self_guided_toure_app/widget/text/text_field/AppTextFiled.dart';
 
+import '../../../widget/app_bar/build_app_bar.dart';
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -28,18 +30,7 @@ class LoginScreen extends StatelessWidget {
           SafeArea(
             child: Scaffold(
               backgroundColor: Colors.transparent,
-              appBar: AppBar(
-                backgroundColor: Colors.transparent,
-                elevation: 0,
-                centerTitle: true,
-                iconTheme: const IconThemeData(color: Colors.white),
-                title: AppText(
-                  data: "Sign In",
-                  color: AppColors.instance.white50,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              appBar: BuildAppBar( title: 'Sign In',),
               body: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: SingleChildScrollView(
@@ -187,7 +178,7 @@ class LoginScreen extends StatelessWidget {
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 14,
+                                fontSize: 15,
                               ),
                             ),
                           ),

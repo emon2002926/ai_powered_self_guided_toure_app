@@ -1,46 +1,44 @@
-import 'package:ai_powered_self_guided_toure_app/constant/app_colors.dart';
-import 'package:ai_powered_self_guided_toure_app/widget/buttons/app_button.dart';
-import 'package:ai_powered_self_guided_toure_app/widget/text/app_text.dart';
+import 'dart:ffi';
+
+import 'package:ai_powered_self_guided_toure_app/repository/city_data/data/models/city_model.dart';
 import 'package:flutter/material.dart';
 
-class CityCardWidget extends StatelessWidget {
-  final String imageUrl;
-  final String cityLabel;
-  final VoidCallback onPressed;
+import '../../../constant/app_colors.dart';
+import '../../../widget/buttons/app_button.dart';
+
+class CityCard  extends StatelessWidget {
+  final List<CityModel> cities;
+  final int index;
   final int currentPage;
   final int totalPages;
-  const CityCardWidget({
-    super.key,
-    required this.imageUrl,
-    required this.cityLabel,
-    required this.currentPage,
-    required this.totalPages, required this.onPressed,
-  });
+  final VoidCallback onPressed;
+  const CityCard ({super.key,required this.cities,
+    required this.currentPage,required this.totalPages,
+    required this.index, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
-    return
-      Card(
-      elevation: 4,
+    return  ClipRRect(
+      borderRadius: BorderRadius.circular(12),
       child: Container(
         decoration: BoxDecoration(
-
-          color: AppColors.instance.cardBackground,
-          borderRadius: BorderRadius.circular(8),
+          color: Colors.white.withOpacity(0.15),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: Colors.white.withOpacity(0.2), width: 1),
         ),
         child: Column(
           children: [
             ClipRRect(
-              // borderRadius: BorderRadius.circular(8),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(8),
-                topRight: Radius.circular(8),
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(12),
+                topRight: Radius.circular(12),
               ),
               child: Image.asset(
-                imageUrl,
+                cities[index].imageUrl,
                 height: 200,
                 width: double.infinity,
                 fit: BoxFit.cover,
+                filterQuality: FilterQuality.low,
               ),
             ),
             const SizedBox(height: 8),
@@ -65,15 +63,15 @@ class CityCardWidget extends StatelessWidget {
               padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
               child: AppButton(
                 textColor: Colors.white,
-                buttonColor: AppColors.instance.loginBtnColor, buttonText: cityLabel, onPressed:onPressed,
+                buttonColor: AppColors.instance.transparent,
+                buttonText: cities[index].name,
+                onPressed: onPressed,
               ),
             ),
           ],
         ),
       ),
     );
+
   }
-
-
-
 }

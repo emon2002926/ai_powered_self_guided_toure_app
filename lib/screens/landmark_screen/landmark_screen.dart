@@ -1,10 +1,9 @@
 import 'dart:async';
 import 'dart:ui';
-
 import 'package:ai_powered_self_guided_toure_app/constant/app_assert_image.dart';
+import 'package:ai_powered_self_guided_toure_app/widget/app_bar/build_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:ai_powered_self_guided_toure_app/constant/app_colors.dart';
 import 'package:ai_powered_self_guided_toure_app/util/sample_data/city_list.dart';
 import 'package:ai_powered_self_guided_toure_app/widget/buttons/app_button.dart';
@@ -35,6 +34,7 @@ class _LandmarkPageState extends State<LandmarkPage> {
           nextPage,
           duration: const Duration(milliseconds: 500),
           curve: Curves.easeInOut,
+
         );
       }
     });
@@ -53,23 +53,14 @@ class _LandmarkPageState extends State<LandmarkPage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.transparent,
-      appBar: _buildAppBar(),
+      appBar: BuildAppBar(title: "Landmark",),
       body: Stack(
         children: [
           // Background blur with current city image
           Positioned.fill(
             child: Image.asset(
-              // cities[_currentImageIndex].imageUrl,
               AppAssertImage.instance.backgroundImage,
               fit: BoxFit.cover,
-            ),
-          ),
-          Positioned.fill(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
-              child: Container(
-                color: Colors.white.withOpacity(0.1),
-              ),
             ),
           ),
 
@@ -78,7 +69,6 @@ class _LandmarkPageState extends State<LandmarkPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // _buildSearchBar(),
                 _buildSectionTitle('Visited places'),
                 _buildImageCarousel(),
                 _buildPageIndicators(),
@@ -89,31 +79,6 @@ class _LandmarkPageState extends State<LandmarkPage> {
           ),
         ],
       ),
-    );
-  }
-
-  AppBar _buildAppBar() {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      leading: IconButton(
-        icon: const Icon(Icons.arrow_back, color: Colors.white),
-        onPressed: () => Navigator.pop(context),
-      ),
-      title: const AppText(
-        data: 'Landmark',
-        color: Colors.white,
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-      ),
-      centerTitle: true,
-    );
-  }
-
-  Widget _buildSearchBar() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: CustomSearchBar(controller: _searchController),
     );
   }
 
@@ -240,4 +205,12 @@ class _LandmarkPageState extends State<LandmarkPage> {
       ),
     );
   }
+
+//Todo search bar
+// Widget _buildSearchBar() {
+//   return Padding(
+//     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+//     child: CustomSearchBar(controller: _searchController),
+//   );
+// }
 }
