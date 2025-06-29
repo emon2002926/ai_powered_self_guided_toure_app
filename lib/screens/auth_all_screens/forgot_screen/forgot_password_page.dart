@@ -1,7 +1,10 @@
+import 'package:ai_powered_self_guided_toure_app/constant/app_constant.dart';
+import 'package:ai_powered_self_guided_toure_app/widget/app_bar/build_app_bar.dart';
 import 'package:ai_powered_self_guided_toure_app/widget/buttons/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../../constant/app_assert_image.dart';
 import '../../../constant/app_colors.dart';
 import '../../../routes/app_routes.dart';
 import '../../../widget/text/app_text.dart';
@@ -28,77 +31,75 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.instance.softMintBackground,
-      appBar: AppBar(
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        title: const AppText(
-          data: 'Forgot password',
-          fontSize: 18,
-          fontWeight: FontWeight.w500,
-        ),
-        centerTitle: false,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 40),
-            Container(
-              width: double.infinity,
-              // padding: const EdgeInsets.all(24),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-              ),
+      extendBodyBehindAppBar: true,
+      appBar:BuildAppBar(title: "Forgot Password"),
+      body: Stack(
+        children: [
+          Positioned.fill(child: Image.asset(
+            AppAssertImage.instance.backgroundImage,fit: BoxFit.cover,filterQuality: FilterQuality.low,)),
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const AppText(data: 'Forgot Password?', fontSize: 20, fontWeight: FontWeight.bold,
-                  ),
-                  const SizedBox(height: 8),
-                  SizedBox(
+                  const SizedBox(height: 40),
+                  Container(
                     width: double.infinity,
-                    child: AppText(
-                      data: 'Enter your email and we will send you a\nverification code', textAlign: TextAlign.center, fontSize: 14, color: Colors.grey[700], fontWeight: FontWeight.bold, height: 1.4,
+                    // padding: const EdgeInsets.all(24),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
                     ),
-                  ),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.050),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 8),
 
-                  SizedBox(
-                    width: double.infinity,
-                    child: Align(alignment: Alignment.centerLeft, child: AppText(data: 'Email', fontWeight: FontWeight.bold, fontSize: 16, color: AppColors.instance.labelTextColor,),)),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.020),
-                  AppTextFiled(
-                    hintText: 'Enter your email', passwordController: _emailController, hintColor: AppColors.instance.hintTextColor,),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.050),
-                  // Send code button
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.050),
+                        const AppText(data: 'Forgot Password?', fontSize: 22, fontWeight: FontWeight.bold,
+                        ),
+                        const SizedBox(height: 8),
+                        SizedBox(
+                          width: double.infinity,
+                          child: AppText(
+                            data: 'Enter your email and we will send you a\nverification code',
+                            textAlign: TextAlign.center, fontSize: 14,
+                            color: AppColors.instance.white50,
+                            fontWeight: FontWeight.normal, height: 1.4,
+                          ),
+                        ),
+                        SizedBox(height: MediaQuery.of(context).size.height * 0.050),
 
-                  SizedBox(
-                    width: double.infinity,
-                    child: AppButton(buttonText: "Send Code ", onPressed: () {
-                      // _sendVerificationCode(context, _emailController);
-                      Get.toNamed(AppRoutes.verifyCodePage,arguments: _emailController.text);
-                    },
-                      buttonColor: AppColors.instance.loginBtnColor,
-                      borderRadius: 25,
-                      // textColor: AppColors.instance.labelTextColor,
-                      elevation: 4,
+                        SizedBox(
+                            width: double.infinity,
+                            child: Align(alignment: Alignment.centerLeft,
+                              child: AppText(data: 'Email', fontWeight: FontWeight.bold, fontSize: 16, color: AppColors.instance.white50,),)),
+                        SizedBox(height: MediaQuery.of(context).size.height * 0.020),
+                        AppTextFiled(
+                          hintText: 'Enter your email', passwordController: _emailController,
+                          hintColor: AppColors.instance.white50,),
+                        SizedBox(height: MediaQuery.of(context).size.height * 0.050),
+                        // Send code button
+                        SizedBox(height: MediaQuery.of(context).size.height * 0.050),
 
-                    )
+                        AppButton(
+                        buttonText: "Login",
+                        onPressed: () => Get.toNamed(AppRoutes.verifyCodePage,arguments: _emailController.text),
+                        borderRadius: 25,
+                        buttonColor: AppColors.instance.transparent,
+                        borderColor: AppColors.instance.white50,
+                        borderWidth: 1.5,
+                        buttonHeight: 48,
+                        ),
+
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+
+        ],
       ),
     );
   }

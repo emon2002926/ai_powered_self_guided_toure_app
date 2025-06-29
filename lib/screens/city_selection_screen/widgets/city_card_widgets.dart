@@ -26,6 +26,7 @@ class CityCard  extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           border: Border.all(color: Colors.white.withOpacity(0.2), width: 1),
         ),
+
         child: Column(
           children: [
             ClipRRect(

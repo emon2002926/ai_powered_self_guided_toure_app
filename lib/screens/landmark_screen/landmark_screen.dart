@@ -50,7 +50,8 @@ class _LandmarkPageState extends State<LandmarkPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return
+      Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.transparent,
       appBar: BuildAppBar(title: "Landmark",),
@@ -182,7 +183,7 @@ class _LandmarkPageState extends State<LandmarkPage> {
             AppButton(
               buttonText: "Free Tour selected",
               onPressed: () {
-                Get.toNamed(AppRoutes.landmarkBrief);
+                Get.toNamed(AppRoutes.touristAttraction);
               },
               buttonColor: AppColors.instance.transparent,
               borderColor: AppColors.instance.white50,

@@ -1,5 +1,7 @@
+import 'package:ai_powered_self_guided_toure_app/screens/city_selection_screen/city_selection_screen.dart';
 import 'package:ai_powered_self_guided_toure_app/screens/landmark_screen/landmark_brief.dart';
 import 'package:ai_powered_self_guided_toure_app/screens/landmark_screen/landmark_screen.dart';
+import 'package:ai_powered_self_guided_toure_app/screens/tourist_attraction/vebu_test.dart';
 import 'package:ai_powered_self_guided_toure_app/screens/welcome_screen/welcome_screen.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -10,7 +12,7 @@ import '../screens/auth_all_screens/forgot_screen/forgot_password_page.dart';
 import '../screens/auth_all_screens/forgot_screen/screens/otp_verification_page.dart';
 import '../screens/auth_all_screens/login_screen/login_screen.dart';
 import '../screens/auth_all_screens/sign_up_screen/sign_up_screen.dart';
-import '../screens/city_selection/city_selection_screen.dart';
+import '../screens/tourist_attraction/tourist_attraction_screen.dart';
 import 'app_routes.dart';
 
 List<GetPage> appRootRoutesFile = <GetPage>[
@@ -22,5 +24,7 @@ List<GetPage> appRootRoutesFile = <GetPage>[
   GetPage(name: AppRoutes.citySearch, page: () => const CitySelectionScreen(), transition: Transition.rightToLeftWithFade, transitionDuration: const Duration(milliseconds: 250)),
   GetPage(name: AppRoutes.landMark, page: () => const LandmarkPage(), transition: Transition.rightToLeftWithFade, transitionDuration: const Duration(milliseconds: 250)),
   GetPage(name: AppRoutes.landmarkBrief, page: () => const LandmarkBrief(), transition: Transition.rightToLeftWithFade, transitionDuration: const Duration(milliseconds: 250)),
+  GetPage(name: AppRoutes.touristAttraction, page: () => const TouristAttractionScreen(), transition: Transition.rightToLeftWithFade, transitionDuration: const Duration(milliseconds: 250)),
+  GetPage(name: AppRoutes.bevuTest, page: () =>  CluePage(), transition: Transition.rightToLeftWithFade, transitionDuration: const Duration(milliseconds: 250)),
 
 ];

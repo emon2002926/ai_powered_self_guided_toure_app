@@ -63,7 +63,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     SizedBox(height: MediaQuery.of(context).size.height * 0.020),
                     AppTextFiled(hintText: "Password",suffixIcon: Icons.visibility_off),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.035),
-                    AppButton(buttonText: "Sign Up", onPressed: () {},textColor: Colors.black,buttonColor: AppColors.instance.loginBtnColor,borderRadius: 25,),
+                    AppButton(
+                      buttonText: "Login",
+                      onPressed: (){},
+                      borderRadius: 25,
+                      buttonColor: AppColors.instance.transparent,
+                      borderColor: AppColors.instance.white50,
+                      borderWidth: 1.5,
+                      buttonHeight: 48,
+                    ),
+
                     SizedBox(height: MediaQuery.of(context).size.height * 0.020),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,

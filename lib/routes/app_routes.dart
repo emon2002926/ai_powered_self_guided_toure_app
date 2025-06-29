@@ -12,6 +12,8 @@ class AppRoutes{
   static const String forgotPasswordRoute = '/forgotPassword';
   static const String citySearch = '/citySearch';
   static const String landMark = '/landmark';
+  static const String touristAttraction = '/cityList';
+  static const String bevuTest = '/bevuTest';
   static const String landmarkBrief = '/landmarkBrief';
 
 

@@ -1,4 +1,4 @@
-import 'package:ai_powered_self_guided_toure_app/screens/city_selection/widgets/city_card_widgets.dart';
+import 'package:ai_powered_self_guided_toure_app/screens/city_selection_screen/widgets/city_card_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../constant/app_assert_image.dart';
@@ -11,7 +11,9 @@ class CitySelectionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return
+
+      Scaffold(
       body: Stack(
         children: [
           Image.asset(
