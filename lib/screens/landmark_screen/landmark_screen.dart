@@ -19,7 +19,6 @@ class LandmarkPage extends StatefulWidget {
 }
 
 class _LandmarkPageState extends State<LandmarkPage> {
-  final TextEditingController _searchController = TextEditingController();
   final PageController _pageController = PageController();
   Timer? _autoScrollTimer;
   int _currentImageIndex = 0;
@@ -42,7 +41,6 @@ class _LandmarkPageState extends State<LandmarkPage> {
 
   @override
   void dispose() {
-    _searchController.dispose();
     _pageController.dispose();
     _autoScrollTimer?.cancel();
     super.dispose();
@@ -183,7 +181,7 @@ class _LandmarkPageState extends State<LandmarkPage> {
             AppButton(
               buttonText: "Free Tour selected",
               onPressed: () {
-                Get.toNamed(AppRoutes.touristAttraction);
+                Get.toNamed(AppRoutes.touristAttraction, arguments: "Tourist Attraction");
               },
               buttonColor: AppColors.instance.transparent,
               borderColor: AppColors.instance.white50,
@@ -193,7 +191,9 @@ class _LandmarkPageState extends State<LandmarkPage> {
             const SizedBox(height: 30),
             AppButton(
               buttonText: "A Scavenger Hunt",
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed(AppRoutes.touristAttraction, arguments: "Scavenger Hunt");
+              },
               buttonColor: AppColors.instance.transparent,
               borderColor: AppColors.instance.white50,
               borderWidth: 1.5,
@@ -207,11 +207,4 @@ class _LandmarkPageState extends State<LandmarkPage> {
     );
   }
 
-//Todo search bar
-// Widget _buildSearchBar() {
-//   return Padding(
-//     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-//     child: CustomSearchBar(controller: _searchController),
-//   );
-// }
 }

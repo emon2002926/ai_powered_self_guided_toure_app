@@ -2,6 +2,8 @@ import 'package:ai_powered_self_guided_toure_app/constant/app_constant.dart';
 import 'package:flutter/material.dart';
 
 import '../../constant/app_colors.dart';
+import 'dart:ui';
+import 'package:flutter/material.dart';
 
 class AppButton extends StatelessWidget {
   final String buttonText;
@@ -14,8 +16,12 @@ class AppButton extends StatelessWidget {
   final double? fontSize;
   final double? elevation;
   final double? buttonHeight;
-  final Color? borderColor; // 🔹 Added this
-  final double? borderWidth; // 🔹 And this
+  final Color? borderColor;
+  final double? borderWidth;
+  final IconData? prefixIcon;
+  final IconData? suffixIcon;
+  final FontWeight? fontWeight;
+  final bool? enableFrostEffect; // 🔹 Optional frost glass toggle
 
   const AppButton({
     super.key,
@@ -29,38 +35,78 @@ class AppButton extends StatelessWidget {
     this.fontSize,
     this.elevation,
     this.buttonHeight,
-    this.borderColor, // 🔹 Constructor
+    this.borderColor,
     this.borderWidth,
+    this.prefixIcon,
+    this.suffixIcon,
+    this.fontWeight,
+    this.enableFrostEffect = false, // 🔹 Default is false
   });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: buttonHeight ?? 48,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: buttonColor ?? AppColors.instance.btnColor,
-          elevation: elevation ?? 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius ?? 12),
-            side: BorderSide(
-              color: borderColor ?? Colors.transparent, // 🔹 Outline color
-              width: borderWidth ?? 1.5, // 🔹 Outline thickness
-            ),
-          ),
-        ),
-        child: Text(
-          buttonText,
-          style: TextStyle(
-            color: textColor ?? AppColors.instance.btnTextColor,
-            fontFamily: fontFamily ?? AppConstant.instance.poppins,
-            fontWeight: FontWeight.w700,
-            fontSize: fontSize ?? 16,
+    final radius = borderRadius ?? 12;
+
+    Widget buttonContent = ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: enableFrostEffect == true
+            ? Colors.white.withOpacity(0.2)
+            : buttonColor ?? AppColors.instance.btnColor,
+        elevation: elevation ?? 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(radius),
+          side: BorderSide(
+            color: borderColor ?? Colors.transparent,
+            width: borderWidth ?? 1.5,
           ),
         ),
       ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (prefixIcon != null) ...[
+            Icon(
+              prefixIcon,
+              color: textColor ?? Colors.white,
+              size: fontSize ?? 24,
+            ),
+            const SizedBox(width: 8),
+          ],
+          Text(
+            buttonText,
+            style: TextStyle(
+              color: textColor ?? Colors.white,
+              fontFamily: fontFamily,
+              fontWeight: fontWeight ?? FontWeight.w700,
+              fontSize: fontSize ?? 16,
+            ),
+          ),
+          if (suffixIcon != null) ...[
+            const SizedBox(width: 8),
+            Icon(
+              suffixIcon,
+              color: textColor ?? Colors.white,
+              size: fontSize ?? 24,
+            ),
+          ],
+        ],
+      ),
+    );
+
+    return SizedBox(
+      width: double.infinity,
+      height: buttonHeight ?? 48,
+      child: enableFrostEffect == true
+          ? ClipRRect(
+        borderRadius: BorderRadius.circular(radius),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+          child: buttonContent,
+        ),
+      )
+          : buttonContent,
     );
   }
 }

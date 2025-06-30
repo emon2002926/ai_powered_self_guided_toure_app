@@ -78,6 +78,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         child: AppButton(
                           buttonText: "Let’s Start",
                           onPressed: () {
+                            // Get.toNamed(AppRoutes.submitPage);
                             Get.toNamed(AppRoutes.login);
                           },
                           borderRadius: 12,

@@ -12,9 +12,11 @@ class AppRoutes{
   static const String forgotPasswordRoute = '/forgotPassword';
   static const String citySearch = '/citySearch';
   static const String landMark = '/landmark';
+  static const String mapPage = '/map';
   static const String touristAttraction = '/cityList';
-  static const String bevuTest = '/bevuTest';
+  static const String submitPage = '/bevuTest';
   static const String landmarkBrief = '/landmarkBrief';
+  static const String clues = '/clues';
 
 
 }

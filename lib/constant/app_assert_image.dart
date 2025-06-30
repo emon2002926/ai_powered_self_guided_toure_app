@@ -9,4 +9,6 @@
     final String googleLogo = "assets/icons/google_logo.png";
     final String backgroundImage = "assets/cities/bg2.png";
     final String clueMap = "assets/cities/scavenger_hunt.jpg";
+    final String map = "assets/cities/map.png";
+    final String scavengeImage = "assets/cities/texas3.png";
   }

@@ -14,6 +14,14 @@ class TouristAttractionScreen extends StatefulWidget {
 }
 
 class _TouristAttractionScreenState extends State<TouristAttractionScreen> {
+  late String appBarTitle;
+
+  @override
+  void initState() {
+    super.initState();
+    appBarTitle = Get.arguments as String? ?? "Tourist Attraction";
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,8 +47,8 @@ class _TouristAttractionScreenState extends State<TouristAttractionScreen> {
                   backgroundColor: Colors.transparent,
                   elevation: 0,
                   leading: const BackButton(color: Colors.white),
-                  title: const AppText(
-                    data: "Tourist Attraction",
+                  title: AppText(
+                    data: appBarTitle,
                     color: Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -53,7 +61,7 @@ class _TouristAttractionScreenState extends State<TouristAttractionScreen> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                     child: AppText(
-                      data: "Set the venue", // changed from "Choose your city"
+                      data: "Set the venue",
                       fontSize: 18,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -70,7 +78,14 @@ class _TouristAttractionScreenState extends State<TouristAttractionScreen> {
                         return VenueCard(
                           venueList: venueList,
                           index: index,
-                          onPressed: () => Get.toNamed(AppRoutes.bevuTest),
+                          onPressed: () => {
+                            if(appBarTitle == "Scavenger Hunt"){
+                              // Get.toNamed(AppRoutes.submitPage)
+                              Get.toNamed(AppRoutes.clues)
+                            }else{
+                              Get.toNamed(AppRoutes.mapPage, arguments: appBarTitle)
+                            }
+                          },
                         );
                       },
                       childCount: venueList.length,
@@ -79,7 +94,7 @@ class _TouristAttractionScreenState extends State<TouristAttractionScreen> {
                       crossAxisCount: 2,
                       mainAxisSpacing: 8,
                       crossAxisSpacing: 8,
-                      childAspectRatio: 0.90, // ✅ KEY: Adjust to avoid overflow
+                      childAspectRatio: 0.90,
                     ),
                   ),
                 ),

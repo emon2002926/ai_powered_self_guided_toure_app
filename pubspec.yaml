@@ -65,6 +65,8 @@ flutter:
     - assets/fonts/playfair/
     - assets/fonts/poppins/
     - assets/animations/cycling_animation.json
+    - assets/animations/mic.json
+    - assets/animations/speak.json
 
 
   fonts:
