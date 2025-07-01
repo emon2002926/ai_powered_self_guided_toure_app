@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../text/app_text.dart';
 import 'dart:ui';
-import 'package:flutter/material.dart';
-import '../text/app_text.dart';
 
 class BuildAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;

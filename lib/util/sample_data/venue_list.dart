@@ -1,4 +1,3 @@
-import '../../repository/city_data/data/models/city_model.dart';
 import '../../repository/venue_data/venue_model.dart';
 
 final List<VenueModel> venueList = [

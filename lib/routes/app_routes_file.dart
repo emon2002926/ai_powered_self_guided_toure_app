@@ -4,9 +4,6 @@ import 'package:ai_powered_self_guided_toure_app/screens/landmark_screen/landmar
 import 'package:ai_powered_self_guided_toure_app/screens/submit_page/submit_page.dart';
 import 'package:ai_powered_self_guided_toure_app/screens/welcome_screen/welcome_screen.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/routes/get_route.dart';
-import 'package:get/get_navigation/src/routes/transitions_type.dart';
 
 import '../screens/auth_all_screens/forgot_screen/forgot_password_page.dart';
 import '../screens/auth_all_screens/forgot_screen/screens/otp_verification_page.dart';

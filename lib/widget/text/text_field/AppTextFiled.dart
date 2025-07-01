@@ -1,9 +1,6 @@
 import 'package:ai_powered_self_guided_toure_app/constant/app_colors.dart';
 import 'package:ai_powered_self_guided_toure_app/constant/app_constant.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import '../../../constant/app_colors.dart';
 
 class AppTextFiled extends StatelessWidget {
   final String hintText;

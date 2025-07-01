@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +21,9 @@ class AppText extends StatelessWidget {
     this.decorationColor,
     this.translate = false,
     this.fontFamily,
+    this.frosted = false,
   });
+
   final String data;
   final double? fontSize;
   final double textScaleFactor;
@@ -34,14 +37,18 @@ class AppText extends StatelessWidget {
   final Color? decorationColor;
   final bool translate;
   final String? fontFamily;
+  final bool frosted;
+
   @override
   Widget build(BuildContext context) {
-    return Text(
+    final baseStyle = Theme.of(context).textTheme.displaySmall ?? const TextStyle();
+
+    final textWidget = Text(
       translate ? data.tr : data,
-      maxLines: maxLines ?? 100,
+      maxLines: maxLines,
       overflow: overflow ?? TextOverflow.ellipsis,
       textAlign: textAlign,
-      style: Theme.of(context).textTheme.displaySmall?.copyWith(
+      style: baseStyle.copyWith(
         height: height,
         fontSize: fontSize,
         color: color ?? AppColors.instance.white50,
@@ -51,6 +58,23 @@ class AppText extends StatelessWidget {
         decorationColor: decorationColor,
       ),
       textScaler: TextScaler.linear(textScaleFactor),
+    );
+
+    if (!frosted) return textWidget;
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.2),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: textWidget,
+        ),
+      ),
     );
   }
 }

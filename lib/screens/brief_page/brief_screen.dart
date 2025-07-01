@@ -1,10 +1,11 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../constant/app_assert_image.dart';
 import '../../constant/app_colors.dart';
 import '../../constant/app_constant.dart';
+import '../../routes/app_routes.dart';
 import '../../widget/app_bar/build_app_bar.dart';
 import '../../widget/buttons/app_button.dart';
 import '../../widget/dialog/app_dialog.dart';
@@ -80,7 +81,6 @@ class _BriefScreenState extends State<BriefScreen> {
                               'assets/animations/speak.json',
                               fit: BoxFit.fill,
                               repeat: true,
-
                             ),
                           ),
                         ),
@@ -88,8 +88,6 @@ class _BriefScreenState extends State<BriefScreen> {
                     )
                 ),
                 SizedBox(height: 25,),
-
-
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
@@ -103,7 +101,7 @@ class _BriefScreenState extends State<BriefScreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 16),
-                        child: Container(
+                        child: SizedBox(
                           height:50,
                           width: 50,
                           child:Lottie.asset(
@@ -137,7 +135,25 @@ class _BriefScreenState extends State<BriefScreen> {
                         height: MediaQuery.of(context).size.height * 0.06,
                         child: AppButton(
                           buttonText: "Finished",
-                          onPressed: () {},
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              barrierDismissible: false,
+                              builder: (context) => AppDialog(
+                                title: "Finished",
+                                description: "Are you sure you want to finish your tour? ",
+                                onConfirm: () {
+                                  Get.offAllNamed(AppRoutes.citySearch);
+
+                                  // Your confirm logic
+                                },
+                                onCancel: () {
+                                  Navigator.pop(context);
+                                  // Your cancel logic
+                                },
+                              ),
+                            );
+                          },
                           buttonColor: AppColors.instance.transparent,
                           borderColor: AppColors.instance.white50,
                           borderRadius: 12,
@@ -154,7 +170,10 @@ class _BriefScreenState extends State<BriefScreen> {
                         height: MediaQuery.of(context).size.height * 0.06,
                         child: AppButton(
                           buttonText: "Next page",
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed(AppRoutes.touristAttraction);
+
+                          },
                           buttonColor: AppColors.instance.transparent,
                           borderColor: AppColors.instance.white50,
                           borderRadius: 12,

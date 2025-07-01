@@ -1,8 +1,6 @@
-import 'package:ai_powered_self_guided_toure_app/screens/welcome_screen/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'constant/app_colors.dart';
 import 'main_entry_app.dart';
 
 void main() {
@@ -14,6 +12,8 @@ void main() {
     systemNavigationBarColor: Colors.white,
     systemNavigationBarIconBrightness: Brightness.dark,
   ));
+
+
   runApp(MainEntryApp());
 }
 

@@ -81,7 +81,7 @@ class _TouristAttractionScreenState extends State<TouristAttractionScreen> {
                           onPressed: () => {
                             if(appBarTitle == "Scavenger Hunt"){
                               // Get.toNamed(AppRoutes.submitPage)
-                              Get.toNamed(AppRoutes.clues)
+                              Get.toNamed(AppRoutes.mapPage, arguments: "Scavenger Hunt")
                             }else{
                               Get.toNamed(AppRoutes.mapPage, arguments: appBarTitle)
                             }

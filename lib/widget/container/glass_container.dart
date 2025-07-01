@@ -1,7 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
-import '../../constant/app_colors.dart';
 
 class FrostedGlassButton extends StatelessWidget {
   final String text;

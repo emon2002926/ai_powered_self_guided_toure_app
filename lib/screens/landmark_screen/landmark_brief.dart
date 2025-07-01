@@ -1,7 +1,6 @@
 import 'package:ai_powered_self_guided_toure_app/widget/text/app_text.dart';
 import 'package:flutter/material.dart';
 
-import '../../constant/app_colors.dart';
 import '../../util/sample_data/city_list.dart';
 class LandmarkBrief extends StatefulWidget {
   const LandmarkBrief({super.key});

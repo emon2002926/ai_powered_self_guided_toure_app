@@ -7,14 +7,14 @@ import '../../constant/app_colors.dart';
 import '../../routes/app_routes.dart';
 import '../../widget/app_bar/build_app_bar.dart';
 
-class MapScreen extends StatefulWidget {
-  const MapScreen({super.key});
+class MapScreenT extends StatefulWidget {
+  const MapScreenT({super.key});
 
   @override
-  State<MapScreen> createState() => _MapScreenState();
+  State<MapScreenT> createState() => _MapScreenTState();
 }
 
-class _MapScreenState extends State<MapScreen> {
+class _MapScreenTState extends State<MapScreenT> {
   late String appBarTitle;
 
   @override

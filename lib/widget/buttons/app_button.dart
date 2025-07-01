@@ -1,9 +1,7 @@
-import 'package:ai_powered_self_guided_toure_app/constant/app_constant.dart';
 import 'package:flutter/material.dart';
 
 import '../../constant/app_colors.dart';
 import 'dart:ui';
-import 'package:flutter/material.dart';
 
 class AppButton extends StatelessWidget {
   final String buttonText;
@@ -16,6 +14,7 @@ class AppButton extends StatelessWidget {
   final double? fontSize;
   final double? elevation;
   final double? buttonHeight;
+  final double? buttonWidth;
   final Color? borderColor;
   final double? borderWidth;
   final IconData? prefixIcon;
@@ -35,12 +34,13 @@ class AppButton extends StatelessWidget {
     this.fontSize,
     this.elevation,
     this.buttonHeight,
+    this.buttonWidth,
     this.borderColor,
     this.borderWidth,
     this.prefixIcon,
     this.suffixIcon,
     this.fontWeight,
-    this.enableFrostEffect = false, // 🔹 Default is false
+    this.enableFrostEffect = true,  // 🔹 Default is false
   });
 
   @override
@@ -51,7 +51,7 @@ class AppButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: enableFrostEffect == true
-            ? Colors.white.withOpacity(0.2)
+            ? Colors.white.withOpacity(0.1)
             : buttonColor ?? AppColors.instance.btnColor,
         elevation: elevation ?? 0,
         shape: RoundedRectangleBorder(
@@ -96,8 +96,9 @@ class AppButton extends StatelessWidget {
     );
 
     return SizedBox(
-      width: double.infinity,
+      width: buttonWidth ?? double.infinity,
       height: buttonHeight ?? 48,
+
       child: enableFrostEffect == true
           ? ClipRRect(
         borderRadius: BorderRadius.circular(radius),

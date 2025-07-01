@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ui';
 import 'package:ai_powered_self_guided_toure_app/constant/app_assert_image.dart';
 import 'package:ai_powered_self_guided_toure_app/widget/app_bar/build_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +7,6 @@ import 'package:ai_powered_self_guided_toure_app/constant/app_colors.dart';
 import 'package:ai_powered_self_guided_toure_app/util/sample_data/city_list.dart';
 import 'package:ai_powered_self_guided_toure_app/widget/buttons/app_button.dart';
 import 'package:ai_powered_self_guided_toure_app/widget/text/app_text.dart';
-import 'package:ai_powered_self_guided_toure_app/widget/search_bar/custom_search_bar.dart';
 import '../../routes/app_routes.dart';
 
 class LandmarkPage extends StatefulWidget {

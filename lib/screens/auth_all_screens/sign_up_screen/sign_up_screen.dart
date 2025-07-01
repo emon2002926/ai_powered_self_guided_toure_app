@@ -1,7 +1,6 @@
 import 'package:ai_powered_self_guided_toure_app/widget/text/text_field/AppTextFiled.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import '../../../constant/app_assert_image.dart';
 import '../../../constant/app_colors.dart';
 import '../../../widget/app_bar/build_app_bar.dart';

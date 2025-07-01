@@ -2,7 +2,6 @@ import 'package:ai_powered_self_guided_toure_app/constant/app_constant.dart';
 import 'package:ai_powered_self_guided_toure_app/widget/text/app_text.dart';
 import 'package:flutter/material.dart';
 import '../../../constant/app_colors.dart';
-import '../../../repository/city_data/data/models/city_model.dart';
 import '../../../repository/venue_data/venue_model.dart';
 
 class VenueCard extends StatelessWidget {
@@ -63,8 +62,8 @@ class VenueCard extends StatelessWidget {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          Colors.white.withOpacity(0.2),
-                          Colors.white.withOpacity(0.2),
+                          Colors.white.withOpacity(0.15),
+                          Colors.white.withOpacity(0.15),
                         ],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,

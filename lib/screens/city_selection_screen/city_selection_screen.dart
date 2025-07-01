@@ -16,14 +16,12 @@ class CitySelectionScreen extends StatelessWidget {
       Scaffold(
       body: Stack(
         children: [
-          Image.asset(
-            AppAssertImage.instance.backgroundImage, // make sure this is your blurred image
-            fit: BoxFit.cover,
-            width: double.infinity,
-            height: double.infinity,
-            filterQuality: FilterQuality.low,
+          Positioned.fill(
+            child: Image.asset(
+              AppAssertImage.instance.backgroundImage,
+              fit: BoxFit.cover,
+            ),
           ),
-
           SafeArea(
             child: CustomScrollView(
               slivers: [
@@ -77,6 +75,4 @@ class CitySelectionScreen extends StatelessWidget {
       ),
     );
   }
-
-
 }

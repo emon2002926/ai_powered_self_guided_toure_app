@@ -1,6 +1,4 @@
-import 'package:ai_powered_self_guided_toure_app/screens/auth_all_screens/login_screen/login_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class WelcomeScreenController extends ChangeNotifier {
   bool _isLoading = false;
